@@ -1,12 +1,23 @@
 package game;
 
-public class Game {
 
-byte gamecounter = 10;
+
+public class Game {
+  
+
+  byte gamecounter = 10;
 
   String word = "";
-    Game(String string) {
-      word = string;
+
+  // Game(WordChoser choser = new WordChoser);
+
+    Game(){
+      WordChoser choser = new WordChoser();
+      this.word = choser.getRandomWordFromDictionary();
+    }
+
+    Game(WordChoser choser){
+      this.word = choser.getRandomWordFromDictionary();
     }
 
   public String getWordToGuess() {
@@ -25,5 +36,8 @@ byte gamecounter = 10;
 
   public byte getRemainingAttempts() {
     return gamecounter;
+  
   }
+
+
 }
